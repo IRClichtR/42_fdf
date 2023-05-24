@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 13:35:45 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:54:23 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		check_map(char *arg);
 int		check_num(char *arg);
 int		check_words(int fd);
 int		check_z(int	fd);
+void	fill_line(char *line, int *mtx_line);
 int		get_height(char *file_name);
 int		get_width(char *file_name);
 void	read_file(t_map *map, char *file_name);

@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_width.c                                        :+:      :+:    :+:   */
+/*   collect_garbage.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 14:07:49 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 16:08:40 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/24 14:44:44 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/24 17:36:51 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libtools.h"
 
-int	get_width(char *file_name)
+void	collect_garbage(int **ptr, t_list *garbage)
 {
-	int		fd;
-	char	*line;
-	int		count;
-	int		i;
+	int	i;
 
-	fd = open(file_name, O_RDONLY, 0);
-	line = get_next_line(fd);
 	i = 0;
-	count = 1;
-	while (line[i] != 0)
+	dump_add(ptr, garbage);
+	while (ptr[i])
 	{
-		if (line[i] == ' ')
-			count += 1;
+		dump_add(ptr[i], garbage);
 		i++;
 	}
-	free(line);
-	close(fd);
-	return (count);
 }
+

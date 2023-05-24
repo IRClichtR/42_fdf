@@ -18,8 +18,7 @@ LIBTL_SRC	= $(addprefix libtools/, \
 dump_add.c     dump_del.c     get_len.c      super_strdup.c			collect_garbage.c)
 
 CORE		= $(addprefix SRCS/, \
-check_map.c  check_words.c  get_height.c  main.c      check_num.c  \
-check_z.c    fill_line.c    get_width.c   read_file.c)
+close_window.c  create_img.c  evt_close.c  fill_img.c  main.c  read_img.c  vars_init.c)
 
 MLX_DIR		= minilibx-linux
 

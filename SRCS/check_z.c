@@ -6,10 +6,11 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:20:00 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 13:20:02 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:42:19 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "fdf.h"
 
 int	check_z(int	fd)
@@ -18,3 +19,4 @@ int	check_z(int	fd)
 	// if ok return 0
 	// if nok return (-1)
 }
+*/

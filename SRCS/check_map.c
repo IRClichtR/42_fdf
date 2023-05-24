@@ -6,10 +6,10 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:15:50 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 13:26:02 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:39:54 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "fdf.h"
 
 int	check_map(char *arg)
@@ -26,3 +26,4 @@ int	check_map(char *arg)
 	close(fd);
 	return (1);
 }
+*/

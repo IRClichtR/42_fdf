@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_width.c                                        :+:      :+:    :+:   */
+/*   fill_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 14:07:49 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 16:08:40 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/24 14:24:04 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/24 17:03:11 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	get_width(char *file_name)
+void	fill_line(char *line, int *mtx_line)
 {
-	int		fd;
-	char	*line;
-	int		count;
+	char	**nbr;
+	t_list	*garbage;
 	int		i;
 
-	fd = open(file_name, O_RDONLY, 0);
-	line = get_next_line(fd);
 	i = 0;
-	count = 1;
-	while (line[i] != 0)
+	nbr = ft_split(line, ' ');
+	garbage = ft_calloc(1, sizeof(t_list));
+	collect_garbage((int **)nbr, garbage);
+	while (nbr[i] != 0)
 	{
-		if (line[i] == ' ')
-			count += 1;
+		mtx_line[i] = ft_atoi(nbr[i]);
 		i++;
 	}
 	free(line);
-	close(fd);
-	return (count);
+	dump_del(garbage);
 }
