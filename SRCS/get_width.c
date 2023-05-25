@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:07:49 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 16:08:40 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/25 10:50:14 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ int	get_width(char *file_name)
 	fd = open(file_name, O_RDONLY, 0);
 	line = get_next_line(fd);
 	i = 0;
-	count = 1;
-	while (line[i] != 0)
-	{
-		if (line[i] == ' ')
-			count += 1;
-		i++;
-	}
+	count = word_count(line);
 	free(line);
 	close(fd);
 	return (count);

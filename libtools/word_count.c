@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libtools.h                                         :+:      :+:    :+:   */
+/*   word_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 10:50:56 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/25 10:47:34 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/25 10:50:27 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBTOOLS_H
-# define LIBTOOLS_H
+#include "libtools.h"
 
-# include "../ft_printf/ft_printf.h"
-# include "../libft/libft.h"
+int	word_count(char *str)
+{
+	int	i;
+	int	count;
 
-void	collect_garbage(int **ptr, t_list *garbage);
-void	dump_add(void *content, t_list *garbage);
-void	dump_del(t_list *garbage);
-char	**super_strdup(char **av, int ac);
-int		get_len(char **str);
-int		word_count(char *str);
-#endif
+	i = 0;
+	count = 1;
+	while (str[i])
+	{
+		if (str[i] == ' ' 
+		&& (str[i + 1] != '\0' || str[i + 1] != 10 || str[i + 1] != ' '))
+			count += 1;
+		i++;
+	}
+	return (count);
+}

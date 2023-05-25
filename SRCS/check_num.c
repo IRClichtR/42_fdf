@@ -6,12 +6,12 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:21:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 15:41:44 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:05:40 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-/*
+
 static int	check_neg_lim(char *arg)
 {
 	char	*first_digits;
@@ -71,7 +71,7 @@ static int	check_if_number(char *arg)
 	}
 	return (1);
 }
-// changer pour prendre argument en forme fd
+
 int	check_num(char *arg)
 {
 	int		i;
@@ -98,4 +98,3 @@ int	check_num(char *arg)
 	free_argv(arg_chain);
 	return (1);
 }
-*/

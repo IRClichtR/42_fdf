@@ -6,17 +6,24 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 16:45:26 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/25 10:21:46 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void	display_usage(void)
+{
+	ft_printf("This program takes one argument : <filename>.\n");
+	ft_printf("Make sure you have the reading rights and that the file is in");
+	ft_printf("the correct form\n");
+}
+
 int	main(int ac, char **av)
 {
-	(void)ac;
+//	(void)ac;
 	t_map	*map;
-/*
+
 	if (ac != 2)
 	{
 		display_usage();
@@ -27,9 +34,9 @@ int	main(int ac, char **av)
 		ft_putstr_fd("Error: Invalid Map\n", 2);
 		return (0);
 	}
-*/
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, av[1]);
+/*TEST READ_MAP
 	int	i = 0;
 	int j = 0;
 	while (i < map->height)
@@ -44,5 +51,6 @@ int	main(int ac, char **av)
 		i++;
 	}
 	free(map);
+*/
 	return (0);
 }
