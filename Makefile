@@ -15,10 +15,10 @@ ft_isdigit.c      ft_lstmap.c       ft_putendl_fd.c   ft_strlcpy.c      ft_toupp
 ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next_line.c)
 
 LIBTL_SRC	= $(addprefix libtools/, \
-dump_add.c dump_del.c get_len.c super_strdup.c collect_garbage.c word_count.c)
+dump_add.c dump_del.c get_len.c super_strdup.c collect_garbage.c word_count.c check_num.c)
 
 CORE		= $(addprefix SRCS/, \
-check_map.c  check_words.c  get_height.c  main.c      check_num.c  \
+check_map.c  check_words.c  get_height.c  main.c      \
 check_z.c    fill_line.c    get_width.c   read_file.c)
 
 MLX_DIR		= minilibx-linux

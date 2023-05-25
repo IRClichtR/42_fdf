@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libtools.h                                         :+:      :+:    :+:   */
+/*   define_absval.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 12:14:52 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/25 12:30:30 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/25 12:32:53 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBTOOLS_H
-# define LIBTOOLS_H
+#include "libtools.h"
 
-# include "../ft_printf/ft_printf.h"
-# include "../libft/libft.h"
+int	define_absval(void *value)
+{
+	int	res;
 
-int		check_num(char *arg);
-void	collect_garbage(int **ptr, t_list *garbage);
-void	*define_max(void *a, void *b)
-void	dump_add(void *content, t_list *garbage);
-void	dump_del(t_list *garbage);
-char	**super_strdup(char **av, int ac);
-int		get_len(char **str);
-int		word_count(char *str);
-#endif
+	if (*value < 0)
+		res = -(*value);
+	else
+		res = *value;
+	return (res);
+}

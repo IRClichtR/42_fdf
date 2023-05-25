@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 15:54:23 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:32:52 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,18 @@ typedef struct	s_map
 	void	*img_ptr;
 }				t_map;
 
-int		check_map(char *arg);
-int		check_num(char *arg);
-int		check_words(int fd);
-int		check_z(int	fd);
+typedef struct	s_vector
+{
+	int	x;
+	int	y;
+	int	x1;
+	int	y1;
+}
+
+int		check_map(char *filename);
+int		check_words(char *filename);
+int		check_z(int	*filename);
+void	draw_line(t_vector *coord, t_map *map);
 void	fill_line(char *line, int *mtx_line);
 int		get_height(char *file_name);
 int		get_width(char *file_name);
