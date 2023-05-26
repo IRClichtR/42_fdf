@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_words.c                                      :+:      :+:    :+:   */
+/*   vector_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 13:18:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:56:35 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/26 14:04:45 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/26 14:17:30 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	check_words(char *filename)
+void	vector_init(t_vector *crd)
 {
-	int		width;
-	int		fd;
-	char	*line;
-	int		i;
-
-	fd = open(filename, O_RDONLY, 0);
-	width = get_width(filename);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == 0)
-			break ;
-		i = word_count(line, ' ');
-		if (i != width)
-		{
-			free(line);
-			return (-1);
-		}
-		free(line);
-	}
-	free(line);
-	return (0);
+	crd->x = 10;
+	crd->y = 10;
+	crd->x1 = 600;
+	crd->y1 = 300;
 }

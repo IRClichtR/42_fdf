@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 12:14:52 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:05:29 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include "../libft/libft.h"
 
 int		check_num(char *arg);
-void	collect_garbage(int **ptr, t_list *garbage);
-void	*define_max(void *a, void *b)
+void	collect_2int_garbage(int **ptr, t_list *garbage);
+void	collect_2char_garbage(char **str, t_list *garbage);
+int		define_absval(float value);
+int		define_max(float a, float b);
 void	dump_add(void *content, t_list *garbage);
 void	dump_del(t_list *garbage);
 char	**super_strdup(char **av, int ac);
 int		get_len(char **str);
-int		word_count(char *str);
+int		word_count(char *str, char charset);
 #endif

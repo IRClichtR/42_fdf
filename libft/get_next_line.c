@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:18:09 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 17:10:39 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:01:46 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = get_line(charleft, line);
 	if (line[0] == 0)
-		line = NULL;
+		return (free(line), NULL);
 	charleft = get_new_charleft(&charleft);
 	if (line == NULL && charleft)
 	{

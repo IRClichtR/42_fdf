@@ -15,11 +15,12 @@ ft_isdigit.c      ft_lstmap.c       ft_putendl_fd.c   ft_strlcpy.c      ft_toupp
 ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next_line.c)
 
 LIBTL_SRC	= $(addprefix libtools/, \
-dump_add.c dump_del.c get_len.c super_strdup.c collect_garbage.c word_count.c check_num.c)
+check_num.c        define_absval.c  dump_add.c  get_len.c   super_strdup.c \
+collect_garbage.c  define_max.c     dump_del.c  word_count.c)
 
 CORE		= $(addprefix SRCS/, \
-check_map.c  check_words.c  get_height.c  main.c      \
-check_z.c    fill_line.c    get_width.c   read_file.c)
+check_map.c    check_z.c    get_height.c  main.c vector_init.c init_window.c close_window.c\
+check_words.c  draw_line.c  fill_line.c  get_width.c   read_file.c)
 
 MLX_DIR		= minilibx-linux
 
@@ -28,7 +29,7 @@ SRCS		= $(PRINTF_SRC) $(LIBFT_SRC) $(LIBTL_SRC) $(CORE)
 OBJS_DIR	= OBJS
 OBJS		= $(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(notdir $(SRCS))))
 
-CC			= cc
+CC			= cc -O0
 CFLAGS		= -g -Werror -Wextra -Wall
 
 all: $(NAME)

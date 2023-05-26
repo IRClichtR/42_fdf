@@ -6,15 +6,15 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:10:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 12:14:39 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:49:58 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtools.h"
 
-void	*define_max(void *a, void *b)
+int	define_max(float a, float b)
 {
-	if (*a > *b)
+	if (a > b)
 		return (a);
 	else
 		return (b);

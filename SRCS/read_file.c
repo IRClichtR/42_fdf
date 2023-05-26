@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:28:40 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 17:27:44 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:11:36 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	read_file(t_map *map, char *file_name)
 		fill_line(line, map->z_matrix[i]);
 		i++;
 	}
-	collect_garbage(map->z_matrix, garbage);
+	collect_2int_garbage(map->z_matrix, garbage);
 	dump_del(garbage);
 }

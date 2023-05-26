@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_words.c                                      :+:      :+:    :+:   */
+/*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 13:18:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:56:35 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/26 14:02:00 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/26 14:25:25 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	check_words(char *filename)
+void	init_window(t_map *map)
 {
-	int		width;
-	int		fd;
-	char	*line;
-	int		i;
-
-	fd = open(filename, O_RDONLY, 0);
-	width = get_width(filename);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == 0)
-			break ;
-		i = word_count(line, ' ');
-		if (i != width)
-		{
-			free(line);
-			return (-1);
-		}
-		free(line);
-	}
-	free(line);
-	return (0);
+	map->mlx_ptr = mlx_init();
+	map->img_ptr = mlx_new_window(map->mlx_ptr, 1800, 1000, "FDF de Floriane");
+//	mlx_key_hook(map->img_ptr, press_key, NULL);
+	mlx_hook(map->img_ptr, 17, 0, &close_window, map);
 }

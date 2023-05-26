@@ -6,19 +6,19 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:30:30 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 12:32:53 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:48:57 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtools.h"
 
-int	define_absval(void *value)
+int	define_absval(float value)
 {
 	int	res;
 
-	if (*value < 0)
-		res = -(*value);
+	if (value < 0)
+		res = -value;
 	else
-		res = *value;
+		res = value;
 	return (res);
 }

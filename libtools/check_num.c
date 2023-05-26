@@ -6,11 +6,11 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:21:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 11:05:40 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:13:46 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libtools.h"
 
 static int	check_neg_lim(char *arg)
 {
@@ -70,6 +70,23 @@ static int	check_if_number(char *arg)
 		i++;
 	}
 	return (1);
+}
+
+static void	free_argv(char **arg_chain)
+{
+	int	i;
+
+	i = 0;
+	while (arg_chain[i] != NULL)
+		i++;
+	while (i >= 0)
+	{
+		free(arg_chain[i]);
+		arg_chain[i] = NULL;
+		i--;
+	}
+	free(arg_chain);
+	arg_chain = NULL;
 }
 
 int	check_num(char *arg)

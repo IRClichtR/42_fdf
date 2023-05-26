@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/25 10:21:46 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:24:29 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	display_usage(void)
 int	main(int ac, char **av)
 {
 //	(void)ac;
-	t_map	*map;
+	t_map		*map;
+	t_vector	*crd;
 
 	if (ac != 2)
 	{
@@ -36,6 +37,12 @@ int	main(int ac, char **av)
 	}
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, av[1]);
+	crd = ft_calloc(1, sizeof(t_vector));
+	vector_init(crd);
+
+//TEST DISPLAY A LINE ON MAP
+	init_window(map);
+		
 /*TEST READ_MAP
 	int	i = 0;
 	int j = 0;
@@ -50,7 +57,7 @@ int	main(int ac, char **av)
 		printf("\n");
 		i++;
 	}
-	free(map);
 */
+	mlx_loop(map->mlx_ptr);
 	return (0);
 }

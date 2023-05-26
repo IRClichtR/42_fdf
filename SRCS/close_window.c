@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_words.c                                      :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 13:18:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:56:35 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/16 14:42:25 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/26 14:26:07 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	check_words(char *filename)
+int	close_window(t_map *map)
 {
-	int		width;
-	int		fd;
-	char	*line;
-	int		i;
-
-	fd = open(filename, O_RDONLY, 0);
-	width = get_width(filename);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == 0)
-			break ;
-		i = word_count(line, ' ');
-		if (i != width)
-		{
-			free(line);
-			return (-1);
-		}
-		free(line);
-	}
-	free(line);
+	mlx_destroy_image(map->mlx_ptr, map->img_ptr);
+	mlx_clear_window(map->mlx_ptr, map->img_ptr);
+	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
+	mlx_destroy_display(map->mlx_ptr);
+	exit(0);
 	return (0);
 }
