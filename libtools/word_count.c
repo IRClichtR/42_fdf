@@ -14,13 +14,10 @@
 
 int	word_count(char *str, char charset)
 {
-	int		i;
 	int		count;
 	char	**split_str;
 	t_list	*garbage;
 
-	i = 0;
-	count = 0;
 	garbage = ft_calloc(1, sizeof(t_list));
 	split_str = ft_split(str, charset);
 	collect_2char_garbage(split_str, garbage);

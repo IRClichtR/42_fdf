@@ -18,22 +18,23 @@ int	check_words(char *filename)
 	int		fd;
 	char	*line;
 	int		i;
+	int		res;
 
 	fd = open(filename, O_RDONLY, 0);
 	width = get_width(filename);
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		if (line == 0)
 			break ;
 		i = word_count(line, ' ');
 		if (i != width)
-		{
-			free(line);
-			return (-1);
-		}
+			res = -1;
 		free(line);
 	}
 	free(line);
+	close(fd);
+	if (res == -1)
+		return (res);
 	return (0);
 }

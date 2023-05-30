@@ -29,7 +29,7 @@ void	read_file(t_map *map, char *file_name)
 	while (i < map->height)
 	{
 		map->z_matrix[i] = ft_calloc(map->width, sizeof(int));
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		fill_line(line, map->z_matrix[i]);
 		i++;
 	}

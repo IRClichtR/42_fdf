@@ -12,6 +12,18 @@
 
 #include "libft.h"
 
+char	*join_nfree(char **s1, char *s2)
+{
+	char	*tmp;
+
+	if (!(*s1) && !s2)
+		return (NULL);
+	tmp = ft_strjoin(*s1, s2);
+	free(*s1);
+	*s1 = NULL;
+	return (tmp);
+}
+
 char	*get_charleft(int fd, char **charleft, int r_bytes)
 {
 	char	*buff;
@@ -94,32 +106,6 @@ char	*get_new_charleft(char **charleft)
 	return (new_charleft);
 }
 
-char	*get_next_line(int fd, int mode)
-{
-	static char	*charleft;
-	char		*line;
-
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
-		return (NULL);
-	line = NULL;
-	charleft = get_charleft(fd, &charleft, 1);
-	if (charleft && charleft[0] == '\0')
-		return (free(charleft), NULL);
-	if (!charleft)
-		return (NULL);
-	line = get_line(charleft, line);
-	if (line[0] == 0)
-	{
-		free(charleft);
-		charleft = NULL;
-		return (free(line), NULL);
-	}
-	charleft = get_new_charleft(&charleft);
-	if ((line == NULL && charleft) || mode == 2)
-		free(charleft);
-	return (line);
-}
-/*
 char	*get_next_line(int fd)
 {
 	static char	*charleft;
@@ -148,4 +134,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-*/

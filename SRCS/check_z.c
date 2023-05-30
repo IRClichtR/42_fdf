@@ -16,20 +16,23 @@ int	check_z(char *filename)
 {
 	int		fd;
 	char	*line;
+	int		res;
 	
+	res = 0;
 	fd = open(filename, O_RDONLY, 0);
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		if (line == 0)
 			break ;
+		res = check_num(line);
 		if (check_num(line) == -1)
-		{
-			free(line);
-			return (-1);
-		}
+			res = -1;
 		free(line);
 	}
 	free(line);
+	close(fd);
+	if (res == -1)
+		return (res);
 	return (0);
 }

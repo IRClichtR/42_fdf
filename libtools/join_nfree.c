@@ -1,0 +1,13 @@
+#include "libtools.h"
+
+char	*join_nfree(char **s1, char *s2)
+{
+	char	*tmp;
+
+	if (!(*s1) && !s2)
+		return (NULL);
+	tmp = ft_strjoin(*s1, s2);
+	free(*s1);
+	*s1 = NULL;
+	return (tmp);
+}

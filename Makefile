@@ -16,7 +16,7 @@ ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next
 
 LIBTL_SRC	= $(addprefix libtools/, \
 check_num.c        define_absval.c  dump_add.c  get_len.c   super_strdup.c \
-collect_garbage.c  define_max.c     dump_del.c  word_count.c)
+collect_garbage.c  define_max.c     dump_del.c  word_count.c join_nfree.c)
 
 CORE		= $(addprefix SRCS/, \
 check_map.c    check_z.c    get_height.c  main.c vector_init.c init_window.c close_window.c\

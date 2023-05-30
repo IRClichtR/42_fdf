@@ -22,7 +22,7 @@ int	get_height(char *file_name)
 	count = 0;
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		if (line == 0)
 			break;
 		free(line);

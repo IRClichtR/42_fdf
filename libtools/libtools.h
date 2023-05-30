@@ -23,6 +23,7 @@ int		define_absval(float value);
 int		define_max(float a, float b);
 void	dump_add(void *content, t_list *garbage);
 void	dump_del(t_list *garbage);
+char	*join_nfree(char **s1, char *s2);
 char	**super_strdup(char **av, int ac);
 int		get_len(char **str);
 int		word_count(char *str, char charset);
