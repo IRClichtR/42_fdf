@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:18:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:56:35 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:27:01 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_words(char *filename)
 			res = -1;
 		free(line);
 	}
-	free(line);
+//	free(line);
 	close(fd);
 	if (res == -1)
 		return (res);

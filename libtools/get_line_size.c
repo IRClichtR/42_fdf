@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dump_del.c                                         :+:      :+:    :+:   */
+/*   get_line_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 16:45:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/31 13:51:19 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/31 17:49:25 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/05/31 18:02:23 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtools.h"
 
-void	dump_del(t_list *garbage)
+int	get_line_size(char *str)
 {
-	if (garbage == NULL)
-		return ;
-	else
-	{
-		dump_del(garbage->next);
-		free(garbage->content);
-	}
-	free(garbage);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n')
+		i++;
+	return (i);
 }

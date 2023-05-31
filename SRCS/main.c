@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:24:29 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:57:08 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ static void	display_usage(void)
 
 int	main(int ac, char **av)
 {
-//	(void)ac;
-	t_map		*map;
-	t_vector	*crd;
+	(void)ac;
+//	t_map		*map;
+//	t_vector	*crd;
 
 	if (ac != 2)
 	{
 		display_usage();
 		return (0);
 	}
-	if (check_map(av[1]) == -1)
+
+/*	if (check_map(av[1]) == -1)
 	{
 		ft_putstr_fd("Error: Invalid Map\n", 2);
 		return (0);
@@ -39,9 +40,12 @@ int	main(int ac, char **av)
 	read_file(map, av[1]);
 	crd = ft_calloc(1, sizeof(t_vector));
 	vector_init(crd);
-
+*/
+	char 	*line = get_a_line(av[1]);
+	printf("%s\n", line);
+	free(line);
 //TEST DISPLAY A LINE ON MAP
-	init_window(map);
+//	init_window(map);
 		
 /*TEST READ_MAP
 	int	i = 0;
@@ -58,6 +62,6 @@ int	main(int ac, char **av)
 		i++;
 	}
 */
-	mlx_loop(map->mlx_ptr);
+//	mlx_loop(map->mlx_ptr);
 	return (0);
 }
