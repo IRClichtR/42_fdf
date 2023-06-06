@@ -21,29 +21,26 @@ static void	display_usage(void)
 
 int	main(int ac, char **av)
 {
-	(void)ac;
+//	(void)ac;
 //	t_map		*map;
 //	t_vector	*crd;
+	char		**all_lines;
 
 	if (ac != 2)
 	{
 		display_usage();
 		return (0);
 	}
-
-/*	if (check_map(av[1]) == -1)
-	{
-		ft_putstr_fd("Error: Invalid Map\n", 2);
-		return (0);
-	}
+	all_lines = get_file_lines(av[1]);
+	if (!all_lines)
+		return (1);
+	if (check_map(all_lines) == -1)
+		return (1);
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, av[1]);
 	crd = ft_calloc(1, sizeof(t_vector));
 	vector_init(crd);
-*/
-	char 	*line = get_a_line(av[1]);
-	printf("%s\n", line);
-	free(line);
+
 //TEST DISPLAY A LINE ON MAP
 //	init_window(map);
 		

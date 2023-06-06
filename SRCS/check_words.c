@@ -12,29 +12,21 @@
 
 #include "fdf.h"
 
-int	check_words(char *filename)
+int	check_words(char **all_lines)
 {
 	int		width;
-	int		fd;
-	char	*line;
 	int		i;
-	int		res;
 
-	fd = open(filename, O_RDONLY, 0);
-	width = get_width(filename);
-	while (1)
+	width = get_width(all_lines);
+	while (all_lines[i])
 	{
-		line = get_next_line(fd, 0);
-		if (line == 0)
-			break ;
-		i = word_count(line, ' ');
-		if (i != width)
-			res = -1;
-		free(line);
+		if (word_count(all_lines[i], ' ') != width)
+		{
+			dump_del(dump);
+			return (-1);
+		}
+		i++;
 	}
-//	free(line);
-	close(fd);
-	if (res == -1)
-		return (res);
+	dump_del(dump);
 	return (0);
 }

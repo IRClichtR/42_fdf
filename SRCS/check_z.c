@@ -12,27 +12,15 @@
 
 #include "fdf.h"
 
-int	check_z(char *filename)
+int	check_z(char **all_lines)
 {
-	int		fd;
-	char	*line;
-	int		res;
-	
-	res = 0;
-	fd = open(filename, O_RDONLY, 0);
-	while (1)
+	int	i;
+
+	i = 0;
+	while (all_lines[i])
 	{
-		line = get_next_line(fd, 0);
-		if (line == 0)
-			break ;
-		res = check_num(line);
-		if (check_num(line) == -1)
-			res = -1;
-		free(line);
+		if (check_num(all_lines[i]) == -1)
+			return (-1);
 	}
-	free(line);
-	close(fd);
-	if (res == -1)
-		return (res);
 	return (0);
 }

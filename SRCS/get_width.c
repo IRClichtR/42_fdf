@@ -12,16 +12,10 @@
 
 #include "fdf.h"
 
-int	get_width(char *file_name)
+int	get_width(char	**all_lines)
 {
-	int		fd;
-	char	*line;
 	int		count;
 
-	fd = open(file_name, O_RDONLY, 0);
-	line = get_next_line(fd, 2);
-	count = word_count(line, ' ');
-	free(line);
-	close(fd);
+	count = word_count(*all_lines, ' ');
 	return (count);
 }

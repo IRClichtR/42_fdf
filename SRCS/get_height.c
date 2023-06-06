@@ -12,23 +12,10 @@
 
 #include "fdf.h"
 
-int	get_height(char *file_name)
+int	get_height(char **all_lines)
 {
-	int		fd;
 	int		count;
-	char	*line;
 
-	fd = open(file_name, O_RDONLY, 0);
-	count = 0;
-	while (1)
-	{
-		line = get_next_line(fd, 0);
-		if (line == 0)
-			break;
-		free(line);
-		count++;
-	}
-	free(line);
-	close(fd);
+	count = get_len(all_lines);
 	return (count);
 }

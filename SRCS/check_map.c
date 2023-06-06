@@ -12,21 +12,13 @@
 
 #include "fdf.h"
 
-int	check_map(char *arg)
+int	check_map(char **all_lines)
 {
-	int		fd;
-
-	fd = open(arg, O_RDONLY, 0);
-	if (fd < 0)
+	if (check_words(all_lines) == -1 || check_z(all_lines) == -1)
 	{
-		ft_putstr_fd("Error with open(): check permissions or filename\n", 2);
-		exit(127);
-	}
-	if (check_words(arg) == -1 || check_z(arg) == -1)
-	{
-		close(fd);
+		free_2char_str(all_lines);
+		ft_putstr_fd("Error: Invalid map\n", 2);
 		return (-1);
 	}
-	close(fd);
 	return (1);
 }

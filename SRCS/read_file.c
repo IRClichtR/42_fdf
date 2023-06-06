@@ -12,27 +12,18 @@
 
 #include "fdf.h"
 
-void	read_file(t_map *map, char *file_name)
+void	read_file(t_map *map, char **all_lines)
 {
-	int		fd;
-	char	*line;
 	int		i;
-	t_list	*garbage;
 
-	garbage = ft_calloc(1, sizeof(t_list));
 	map->height = get_height(file_name);
 	map->width = get_width(file_name);
 	map->z_matrix = ft_calloc(map->height, sizeof(int *));
 	i = 0;
-	fd = open(file_name, O_RDONLY, 0);
-	i = 0;
 	while (i < map->height)
 	{
 		map->z_matrix[i] = ft_calloc(map->width, sizeof(int));
-		line = get_next_line(fd, 0);
-		fill_line(line, map->z_matrix[i]);
+		fill_line(all_lines[i], map->z_matrix[i]);
 		i++;
 	}
-	collect_2int_garbage(map->z_matrix, garbage);
-	dump_del(garbage);
 }
