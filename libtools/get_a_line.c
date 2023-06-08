@@ -36,20 +36,15 @@ static char	*get_buffer(int fd)
 	return (free(buffer), res);
 }
 
-char	*get_a_line(char *filename)
+char	*get_a_line(int fd)
 {
 	char	*line;
 	char	*buffer;
 	int		len;
-	int		fd;
 
-	fd = open(filename, O_RDONLY, 0);
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
-		return (NULL);
 	buffer = get_buffer(fd);
 	len = get_line_size(buffer);
 	line = ft_substr(buffer, 0, len);
 	free(buffer);
-	close(fd);
 	return (line);
 }

@@ -8,10 +8,10 @@ void	free_2char_str(char **str)
 	while (str[i])
 	{
 		free(str[i]);
-		str[i] == 0;
+		str[i] = NULL;
 		i++;
 	}
 	free(str[i]);
 	free(str);
-	str = 0;
+	str = NULL;
 }
