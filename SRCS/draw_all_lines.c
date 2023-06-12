@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   draw_all_lines.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/12 18:45:09 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/06/12 15:54:23 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/06/12 18:20:31 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
+void	draw_all_lines(t_map *map)
 {
-	float	x_dot;
-	float	y_dot;
-	float	dx;
-	float	dy;
-	int		max;
+	t_vector	*crd;
 
-	x_dot = crd->x;
-	y_dot = crd->y;
-	dx = x1 - crd->x;
-	dy = y1 - crd->y;
-	max = define_max(dx, dy);
-	dx /= max;
-	dy /= max;
-	while ((int)(x_dot - x1) != 0 || (int)(y_dot - y1) != 0)
+	crd = ft_calloc(1, sizeof(t_vector));
+	vector_init(crd);
+	while (crd->y < map->height)
 	{
-		mlx_pixel_put(map->mlx_ptr, map->img_ptr, crd->x, crd->y, 0xffffff);
-		x_dot += dx;
-		y_dot += dy;
+		crd->x = 0;
+		while (crd->x < map->width)
+		{
+			printf("X= %f  Y= %f\n", crd->x, crd->y);
+			draw_line(crd, crd->x + 1, crd->y, map);
+			draw_line(crd, crd->x, crd->y + 1, map);
+			crd->x++;
+		}
+		printf("\n\n");
+		crd->y++;
 	}
+	free(crd);
 }

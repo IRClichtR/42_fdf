@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/31 17:57:08 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:44:12 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	print_z(int **z_matrix, int size, int height)
 int	main(int ac, char **av)
 {
 	t_map		*map;
-	t_vector	*crd;
 	char		**all_lines;
 
 	if (ac != 2)
@@ -56,13 +55,9 @@ int	main(int ac, char **av)
 		return (1);
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, all_lines);
-
-//	print_z(map->z_matrix, size, height);
-	crd = ft_calloc(1, sizeof(t_vector));
 //TEST DISPLAY A LINE ON MAP
-	vector_init(crd);
 	init_window(map);
-	draw_line(crd, map);
+	draw_all_lines(map);
 	mlx_loop(map->mlx_ptr);
 	return (0);
 }

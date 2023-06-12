@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:10:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 12:49:58 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:28:14 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	define_max(float a, float b)
 {
+	if (a < 0)
+		a = -a;
+	if (b < 0)
+		b = -b;
 	if (a > b)
 		return (a);
 	else

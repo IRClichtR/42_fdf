@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:23:15 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:08:28 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,21 @@ typedef struct	s_map
 
 typedef struct	s_vector
 {
-	int	x;
-	int	y;
-	int	x1;
-	int	y1;
+	float	x;
+	float	y;
 }				t_vector;
 
 int		check_map(char **all_lines);
 int		check_words(char **all_lines);
 int		check_z(char	**all_lines);
 int 	close_window(t_map *map);
-void	draw_line(t_vector *coord, t_map *map);
+void	draw_line(t_vector *crd, float x1, float y1, t_map *map);
+void	draw_all_lines(t_map *map);
 void	fill_line(char *line, int *mtx_line);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
 void	init_window(t_map *map);
 void	read_file(t_map *map, char **all_lines);
 void	vector_init(t_vector *crd);
+void    vector_mod_value(t_vector *crd, char *name);
 #endif
