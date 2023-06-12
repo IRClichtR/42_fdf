@@ -18,15 +18,12 @@ int	check_words(char **all_lines)
 	int		i;
 
 	width = get_width(all_lines);
+	i = 0;
 	while (all_lines[i])
 	{
 		if (word_count(all_lines[i], ' ') != width)
-		{
-			dump_del(dump);
 			return (-1);
-		}
 		i++;
 	}
-	dump_del(dump);
 	return (0);
 }

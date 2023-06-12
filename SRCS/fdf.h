@@ -41,15 +41,15 @@ typedef struct	s_vector
 	int	y1;
 }				t_vector;
 
-int		check_map(char *filename);
-int		check_words(char *filename);
-int		check_z(char	*filename);
+int		check_map(char **all_lines);
+int		check_words(char **all_lines);
+int		check_z(char	**all_lines);
 int 	close_window(t_map *map);
 void	draw_line(t_vector *coord, t_map *map);
 void	fill_line(char *line, int *mtx_line);
-int		get_height(char *file_name);
-int		get_width(char *file_name);
+int		get_height(char **all_lines);
+int		get_width(char **all_lines);
 void	init_window(t_map *map);
-void	read_file(t_map *map, char *file_name);
+void	read_file(t_map *map, char **all_lines);
 void	vector_init(t_vector *crd);
 #endif

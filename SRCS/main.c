@@ -16,14 +16,30 @@ static void	display_usage(void)
 {
 	ft_printf("This program takes one argument : <filename>.\n");
 	ft_printf("Make sure you have the reading rights and that the file is in");
-	ft_printf("the correct form\n");
+	ft_printf(" the correct form\n");
+}
+
+void	print_z(int **z_matrix, int size, int height)
+{
+	int	i;
+	int	j = 0;
+	while (j < height)
+	{
+		i = 0;
+		while (i < size)
+		{
+			printf("%d", z_matrix[j][i]);
+			i++;
+		}
+		printf("\n");
+		j++;
+	}
 }
 
 int	main(int ac, char **av)
 {
-//	(void)ac;
-//	t_map		*map;
-//	t_vector	*crd;
+	t_map		*map;
+	t_vector	*crd;
 	char		**all_lines;
 
 	if (ac != 2)
@@ -31,18 +47,25 @@ int	main(int ac, char **av)
 		display_usage();
 		return (0);
 	}
-	all_lines = get_file_lines(av[1]);
+	all_lines = get_all_lines(av[1]);
+//	int	size = get_width(all_lines);
+//	int	height = get_height(all_lines);
 	if (!all_lines)
 		return (1);
 	if (check_map(all_lines) == -1)
 		return (1);
 	map = ft_calloc(1, sizeof(t_map));
-	read_file(map, av[1]);
-	crd = ft_calloc(1, sizeof(t_vector));
-	vector_init(crd);
+	read_file(map, all_lines);
 
+//	print_z(map->z_matrix, size, height);
+	crd = ft_calloc(1, sizeof(t_vector));
 //TEST DISPLAY A LINE ON MAP
-//	init_window(map);
+	vector_init(crd);
+	init_window(map);
+	draw_line(crd, map);
+	mlx_loop(map->mlx_ptr);
+	return (0);
+}
 		
 /*TEST READ_MAP
 	int	i = 0;
@@ -59,6 +82,3 @@ int	main(int ac, char **av)
 		i++;
 	}
 */
-//	mlx_loop(map->mlx_ptr);
-	return (0);
-}

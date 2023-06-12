@@ -29,7 +29,10 @@ char	**get_all_lines(char *filename)
 
 	fd = open(filename, O_RDONLY, 0);
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		ft_putstr_fd("Error: Invalid fd\n", 2);
 		return (NULL);
+	}
 	all_lines = add_lines(fd);
 	split_lines = ft_split(all_lines, '\n');
 	free(all_lines);

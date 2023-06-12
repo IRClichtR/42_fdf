@@ -21,6 +21,7 @@ int	check_z(char **all_lines)
 	{
 		if (check_num(all_lines[i]) == -1)
 			return (-1);
+		i++;
 	}
 	return (0);
 }

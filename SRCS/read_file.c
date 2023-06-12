@@ -16,8 +16,8 @@ void	read_file(t_map *map, char **all_lines)
 {
 	int		i;
 
-	map->height = get_height(file_name);
-	map->width = get_width(file_name);
+	map->height = get_height(all_lines);
+	map->width = get_width(all_lines);
 	map->z_matrix = ft_calloc(map->height, sizeof(int *));
 	i = 0;
 	while (i < map->height)
@@ -26,4 +26,6 @@ void	read_file(t_map *map, char **all_lines)
 		fill_line(all_lines[i], map->z_matrix[i]);
 		i++;
 	}
+	free(all_lines[i]);
+	free(all_lines);
 }

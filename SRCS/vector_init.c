@@ -14,8 +14,8 @@
 
 void	vector_init(t_vector *crd)
 {
-	crd->x = 10;
-	crd->y = 10;
-	crd->x1 = 600;
-	crd->y1 = 300;
+	crd->x = 1;
+	crd->y = 1;
+	crd->x1 = 3;
+	crd->y1 = 12;
 }
