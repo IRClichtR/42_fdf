@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/13 15:54:01 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:05:42 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct	s_point
 	float	y_dot;
 	float	x1_dot;
 	float	y1_dot;
-	float	z_dot;
-	float	z1_dot;
+	int		z_dot;
+	int		z1_dot;
 	float	dx;
 	float	dy;
 	int		max;
