@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/13 14:21:57 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:54:01 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int 	close_window(t_map *map);
 void    draw_line(t_vector *crd, float x1, float y1, t_map *map);
 void	draw_all_lines(t_map *map);
 void	fill_line(char *line, int *mtx_line);
+void    make_topo(t_point *pt);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
 void	init_window(t_map *map);
