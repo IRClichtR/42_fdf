@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:54:23 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/12 18:20:31 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:26:35 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	draw_all_lines(t_map *map)
 		crd->x = 0;
 		while (crd->x < map->width)
 		{
-			printf("X= %f  Y= %f\n", crd->x, crd->y);
-			draw_line(crd, crd->x + 1, crd->y, map);
-			draw_line(crd, crd->x, crd->y + 1, map);
+			if (crd->x < map->width - 1)
+				draw_line(crd, crd->x + 1, crd->y, map);
+			if (crd->y < map->height - 1)
+				draw_line(crd, crd->x, crd->y + 1, map);
 			crd->x++;
 		}
 		printf("\n\n");
