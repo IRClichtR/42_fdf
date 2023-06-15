@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/31 17:54:18 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:23:27 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <fcntl.h>
 
 int		check_num(char *arg);
-void	collect_2int_garbage(int **ptr, t_list *garbage);
+void	collect_2int_garbage(int **ptr, int size, t_list *garbage);
 void	collect_2char_garbage(char **str, t_list *garbage);
 int		define_absval(float value);
 int		define_max(float a, float b);

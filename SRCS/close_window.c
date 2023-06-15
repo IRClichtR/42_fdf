@@ -6,18 +6,36 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:42:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 14:26:07 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:15:26 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void	delete_matrix(t_map* map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->height)
+	{
+		free(map->z_matrix[i]);
+		i++;
+	}
+	free(map->z_matrix);
+}
+
 int	close_window(t_map *map)
 {
-	mlx_destroy_image(map->mlx_ptr, map->img_ptr);
-	mlx_clear_window(map->mlx_ptr, map->img_ptr);
-	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
+	printf("map->z_matrix ? == %p\n", map->z_matrix);
+
+//	mlx_clear_window(map->mlx_ptr, map->img_ptr);
+//	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
+	delete_matrix(map);
 	mlx_destroy_display(map->mlx_ptr);
+	printf("map after destroy_display? == %p\n", map);
+	free(map->mlx_ptr);
+	free(map);
 	exit(0);
 	return (0);
 }

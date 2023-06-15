@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/12 17:44:12 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:20:55 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	main(int ac, char **av)
 	mlx_loop(map->mlx_ptr);
 	return (0);
 }
-		
 /*TEST READ_MAP
 	int	i = 0;
 	int j = 0;

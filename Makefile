@@ -21,7 +21,8 @@ collect_garbage.c  define_max.c     dump_del.c  get_a_line.c      get_len.c     
 
 CORE		= $(addprefix SRCS/, \
 check_map.c    check_z.c       draw_line.c  fill_line.c   get_width.c    main.c       		vector_init.c \
-check_words.c  close_window.c  get_height.c init_window.c read_file.c	 draw_all_lines.c   make_topo.c)
+check_words.c  close_window.c  get_height.c init_window.c read_file.c	 draw_all_lines.c   make_topo.c \
+press_key.c)
 
 MLX_DIR		= minilibx-linux
 
@@ -31,7 +32,7 @@ OBJS_DIR	= OBJS
 OBJS		= $(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(notdir $(SRCS))))
 
 CC			= cc -O0
-CFLAGS		= -g -Werror -Wextra -Wall
+CFLAGS		= -g3 -Werror -Wextra -Wall
 
 all: $(NAME)
 
