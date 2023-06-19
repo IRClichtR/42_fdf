@@ -23,7 +23,8 @@ void	read_file(t_map *map, char **all_lines)
 	while (i < map->height)
 	{
 		map->z_matrix[i] = ft_calloc(map->width, sizeof(int));
-		fill_line(all_lines[i], map->z_matrix[i]);
+		map->color_matrix[i] = ft_calloc(map->width, sizeof(int));
+		fill_line(all_lines[i], map->z_matrix[i], map->color_matrix[i]);
 		i++;
 	}
 	free(all_lines[i]);
