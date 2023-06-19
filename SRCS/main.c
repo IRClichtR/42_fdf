@@ -47,15 +47,12 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	all_lines = get_all_lines(av[1]);
-//	int	size = get_width(all_lines);
-//	int	height = get_height(all_lines);
 	if (!all_lines)
 		return (1);
 	if (check_map(all_lines) == -1)
 		return (1);
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, all_lines);
-//TEST DISPLAY A LINE ON MAP
 	init_window(map);
 	draw_all_lines(map);
 	mlx_loop(map->mlx_ptr);

@@ -19,7 +19,10 @@ int	check_z(char **all_lines)
 	i = 0;
 	while (all_lines[i])
 	{
-		if (check_num(all_lines[i]) == -1)
+		if (ft_strchr(all_lines[i], ',') != 0)
+			if (check_coord(all_linesi[i]) == -1)
+				return (-1);
+		else if (check_num(all_lines[i]) == -1)
 			return (-1);
 		i++;
 	}

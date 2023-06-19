@@ -27,13 +27,11 @@ void	delete_matrix(t_map* map)
 
 int	close_window(t_map *map)
 {
-	printf("map->z_matrix ? == %p\n", map->z_matrix);
-
-//	mlx_clear_window(map->mlx_ptr, map->img_ptr);
-//	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
+//	printf("map->z_matrix ? == %p\n", map->z_matrix);
+	mlx_clear_window(map->mlx_ptr, map->img_ptr);
+	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
 	delete_matrix(map);
 	mlx_destroy_display(map->mlx_ptr);
-	printf("map after destroy_display? == %p\n", map);
 	free(map->mlx_ptr);
 	free(map);
 	exit(0);
