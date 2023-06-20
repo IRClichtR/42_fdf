@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/20 16:04:15 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/06/20 16:07:30 by ftuernal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int	check_map(char **all_lines)
 {
 	if (check_words(all_lines) == 1)
 		return (1);
-	if ((ft_strchr(all_lines[0], ',') != 0 && check_coord(all_lines) == 1)
-		|| check_z(all_lines) == 1)
+	if (check_z(all_lines) == 1)
+	{
+		return (1);
+	}
+	else if (check_coord(all_lines) == 1)
 		return (1);
 	else
 	{

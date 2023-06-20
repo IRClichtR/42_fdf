@@ -1,21 +1,35 @@
 #include "fdf.h"
 
-int	check_coord(char *line)
+static int	check_one_line(char **nbr_str)
+{
+	int		i;
+	char	**cluster;
+
+	i = 0;
+	while (nbr_str[i])
+	{
+		cluster = ft_split(nbr_str[i], ',');
+		if (get_len(cluster) != 2)
+			return (free_2char_str(cluster), -1);
+		if (check_hex(cluster[1]) == -1 || check_num(cluster[0]) == -1)
+			return (free_2char_str(cluster), -1);
+		free_2char_str(cluster);
+		i++;
+	}
+	return (1);
+}
+
+int	check_coord(char **all_lines)
 {
 	int	i;
 	char	**all_nb;
-	char	**chunk_nb;
 
-	all_nb = ft_split(line, ' ');
 	i = 0;
-	while (all_nb[i])
+	while (all_lines[i])
 	{
-		chunk_nb = ft_split(all_nb[i], ',');
-		if (get_len(chunk_nbr) != 2)
-			return(free_2char_str(chunk_nbr), -1);
-		if (check_hex(chunk_nbr[1]) == -1 || check_num(chunk_nbr[0]) == -1)
-			return(free_2char_str(chunk_nbr), -1);
-		free_2char_str(chunk_nbr);
+		all_nb = ft_split(all_lines[i], ' ');
+		if (check_one_line(all_nb) == -1)
+			return (free_2char_str(all_nb), -1);
 		i++;
 	}
 	free_2char_str(all_nb);

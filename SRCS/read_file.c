@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:28:40 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 15:11:36 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:09:13 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	read_file(t_map *map, char **all_lines)
 	map->height = get_height(all_lines);
 	map->width = get_width(all_lines);
 	map->z_matrix = ft_calloc(map->height, sizeof(int *));
+	map->color_matrix = ft_calloc(map->height, sizeof(int *));
 	i = 0;
 	while (i < map->height)
 	{

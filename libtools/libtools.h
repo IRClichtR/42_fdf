@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/15 15:23:27 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:25:44 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		define_max(float a, float b);
 void	dump_add(void *content, t_list *garbage);
 void	dump_del(t_list *garbage);
 void	free_2char_str(char **str);
+int		ft_atoi_base(char *str, char *base);
 char	*get_a_line(int fd);
 char	**get_all_lines(char *filename);
 int		get_line_size(char *str);

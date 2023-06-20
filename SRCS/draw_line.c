@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/15 14:36:30 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:05:33 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,26 @@ static void	define_step(t_point *point)
 
 static void	define_color(t_point *point, t_map *map)
 {
-//if z_matrix[y][x][z] !=0 color allready defined(!=0) return matrix[x][y][z]
-	if (point->z_dot < 0)
-		map->color = 0x7fbfbf;/*bleu*/
-	else if (point->z_dot == 0)
-		map->color = 0x7fbfbf;/*vert*/
-	else if (point->z_dot >= 1 && point->z_dot <= 15)
-		map->color = 0x7fbf7f;/*vert fonce*/
-	else if (point->z_dot > 15 && point->z_dot <= 25)
-		map->color = 0xd6a36e;/*marron clair*/
+	float	x;
+	float	y;
+
+	x = point->x_dot;
+	y = point->y_dot;
+	if (map->color_matrix != 0)
+		map->color = map->color_matrix[(int)y][(int)x];
 	else
-		map->color = 0xa18c76;/*marron fonce*/
+	{
+		if (point->z_dot < 0)
+			map->color = 0x7fbfbf;/*bleu*/
+		else if (point->z_dot == 0)
+			map->color = 0x7fbfbf;/*vert*/
+		else if (point->z_dot >= 1 && point->z_dot <= 15)
+			map->color = 0x7fbf7f;/*vert fonce*/
+		else if (point->z_dot > 15 && point->z_dot <= 25)
+			map->color = 0xd6a36e;/*marron clair*/
+		else
+			map->color = 0xa18c76;/*marron fonce*/
+	}
 }
 
 void	draw_line(t_vector *crd, float x1, float y1, t_map *map)

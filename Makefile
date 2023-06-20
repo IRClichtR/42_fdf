@@ -15,14 +15,14 @@ ft_isdigit.c      ft_lstmap.c       ft_putendl_fd.c   ft_strlcpy.c      ft_toupp
 ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next_line.c)
 
 LIBTL_SRC	= $(addprefix libtools/, \
-check_num.c        define_absval.c  dump_add.c  free_2char_str.c  get_all_lines.c  get_line_size.c  word_count.c \
-collect_garbage.c  define_max.c     dump_del.c  get_a_line.c      get_len.c        join_nfree.c     super_strdup.c)
-
+check_num.c        define_absval.c  dump_add.c         free_2char_str.c get_all_lines.c  get_line_size.c \
+word_count.c       ft_atoi_base.c   collect_garbage.c  define_max.c     dump_del.c       get_a_line.c \
+get_len.c          join_nfree.c     super_strdup.c)
 
 CORE		= $(addprefix SRCS/, \
 check_map.c    check_z.c       draw_line.c  fill_line.c   get_width.c    main.c       		vector_init.c \
 check_words.c  close_window.c  get_height.c init_window.c read_file.c	 draw_all_lines.c   make_topo.c \
-press_key.c)
+press_key.c    check_coord.c   check_hex.c)
 
 MLX_DIR		= minilibx-linux
 
@@ -32,7 +32,7 @@ OBJS_DIR	= OBJS
 OBJS		= $(addprefix $(OBJS_DIR)/, $(patsubst %.c, %.o, $(notdir $(SRCS))))
 
 CC			= cc -O0
-CFLAGS		= -g3 -Werror -Wextra -Wall
+CFLAGS		= -g -Werror -Wextra -Wall
 
 all: $(NAME)
 

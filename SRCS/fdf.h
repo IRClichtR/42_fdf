@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/15 18:09:45 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:30:23 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_map
 	int		width;
 	int		height;
 	int		**z_matrix;
+	int		**color_matrix;
 	void	*mlx_ptr;
 	void	*img_ptr;
 	int		zoom;
@@ -56,6 +57,8 @@ typedef struct	s_point
 	int		max;
 }				t_point;
 
+int		check_coord(char **line);
+int		check_hex(char *str_nb);
 int		check_map(char **all_lines);
 int		check_words(char **all_lines);
 int		check_z(char	**all_lines);
@@ -63,7 +66,7 @@ int 	close_window(t_map *map);
 void    draw_line(t_vector *crd, float x1, float y1, t_map *map);
 void    delete_matrix(t_map* map);
 void	draw_all_lines(t_map *map);
-void	fill_line(char *line, int *mtx_line);
+void	fill_line(char *line, int *mtx_line, int *color_matrix);
 void    make_topo(t_point *pt);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
