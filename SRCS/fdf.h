@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/20 15:30:23 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:05:33 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "../ft_printf/ft_printf.h"
 # include "../libtools/libtools.h"
 # include <errno.h>
+# include <X11/keysym.h>
+# include <X11/X.h>
 # include <sys/types.h>
 # include <unistd.h>
 # include <string.h>
@@ -67,7 +69,7 @@ void    draw_line(t_vector *crd, float x1, float y1, t_map *map);
 void    delete_matrix(t_map* map);
 void	draw_all_lines(t_map *map);
 void	fill_line(char *line, int *mtx_line, int *color_matrix);
-void    make_topo(t_point *pt);
+void    make_topo(float *x, float *y, int z);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
 void	init_window(t_map *map);

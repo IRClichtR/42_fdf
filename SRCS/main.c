@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/20 16:08:38 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:56:36 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	display_usage(void)
 	ft_printf("Make sure you have the reading rights and that the file is in");
 	ft_printf(" the correct form\n");
 }
-
+/*
 void	print_z(int **z_matrix, int size, int height)
 {
 	int	i;
@@ -35,7 +35,7 @@ void	print_z(int **z_matrix, int size, int height)
 		j++;
 	}
 }
-
+*/
 int	main(int ac, char **av)
 {
 	t_map		*map;

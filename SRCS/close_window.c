@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:42:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/15 18:15:26 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:14:59 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ void	delete_matrix(t_map* map)
 	while (i < map->height)
 	{
 		free(map->z_matrix[i]);
+		free(map->color_matrix[i]);
 		i++;
 	}
 	free(map->z_matrix);
+	free(map->color_matrix);
 }
 
 int	close_window(t_map *map)
 {
-//	printf("map->z_matrix ? == %p\n", map->z_matrix);
+	delete_matrix(map);
 	mlx_clear_window(map->mlx_ptr, map->img_ptr);
 	mlx_destroy_window(map->mlx_ptr, map->img_ptr);
-	delete_matrix(map);
 	mlx_destroy_display(map->mlx_ptr);
 	free(map->mlx_ptr);
 	free(map);
