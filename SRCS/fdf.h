@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 17:05:33 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:31:58 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 # include <string.h>
 # include <math.h>
 
+# ifndef WIDTH
+#  define WIDTH 1000
+# endif
+# ifndef HEIGHT
+#  define HEIGHT 800
+# endif
+
 typedef struct	s_map
 {
 	int		width;
@@ -38,6 +45,31 @@ typedef struct	s_map
 	int		color;
 }				t_map;
 
+typedef struct	s_point
+{
+	int	x;
+	int	y;
+	int	z;
+}				t_point;
+
+typedef struct	s_fpoint
+{
+	float	x;
+	float	y;
+	float	z;
+	float	x_inc;
+	float	y_inc;
+	float	z_inc;
+}				t_fpoint;
+
+typedef struct	s_bres
+{
+	int	dx;
+	int	dy;
+	int	step;
+}				t_bres;
+
+/*
 typedef struct	s_vector
 {
 	float	x;
@@ -45,8 +77,8 @@ typedef struct	s_vector
 	float	x1;
 	float	y1;
 }				t_vector;
-
-typedef struct	s_point
+*/
+/*typedef struct	s_point
 {
 	float	x_dot;
 	float	y_dot;
@@ -58,23 +90,23 @@ typedef struct	s_point
 	float	dy;
 	int		max;
 }				t_point;
-
+*/
 int		check_coord(char **line);
 int		check_hex(char *str_nb);
 int		check_map(char **all_lines);
 int		check_words(char **all_lines);
 int		check_z(char	**all_lines);
 int 	close_window(t_map *map);
-void    draw_line(t_vector *crd, float x1, float y1, t_map *map);
+void    draw_line(t_map *map, t_point *p1, t_point *p2);
 void    delete_matrix(t_map* map);
 void	draw_all_lines(t_map *map);
 void	fill_line(char *line, int *mtx_line, int *color_matrix);
-void    make_topo(float *x, float *y, int z);
+//void    make_topo(float *x, float *y, int z);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
 void	init_window(t_map *map);
 int		press_key(int keycode, t_map *map);
 void	read_file(t_map *map, char **all_lines);
-void	vector_init(t_vector *crd);
-void    vector_mod_value(t_vector *crd, char *name);
+//void	vector_init(t_vector *crd);
+//void    vector_mod_value(t_vector *crd, char *name);
 #endif

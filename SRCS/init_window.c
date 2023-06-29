@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:02:00 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/15 17:34:05 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:25:57 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_window(t_map *map)
 
 	ptr = &press_key;
 	map->mlx_ptr = mlx_init();
-	map->img_ptr = mlx_new_window(map->mlx_ptr, 1800, 1000, "FDF de Floriane");
+	map->img_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "FDF de Floriane");
 	mlx_key_hook(map->img_ptr, ptr, &map->mlx_ptr);
 	mlx_hook(map->img_ptr, 17, 0, &close_window, map);
 	map->zoom = 50;

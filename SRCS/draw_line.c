@@ -6,12 +6,127 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 16:15:21 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:33:34 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void	define_color(t_fpoint *fp, t_map *map)
+{
+	
+	if (map->color_matrix[(int)fp->y][(int)fp->x] > 0)
+		map->color = map->color_matrix[(int)fp->y][(int)fp->x];
+	else
+	{
+		if (fp->z < 0)
+			map->color = 0x7fbfbf;/*bleu*/
+		else if (fp->z == 0)
+			map->color = 0x7fbfbf;/*vert*/
+		else if (fp->z >= 1 && fp->z <= 15)
+			map->color = 0x7fbf7f;/*vert fonce*/
+		else if (fp->z > 15 && fp->z <= 25)
+			map->color = 0xd6a36e;/*marron clair*/
+		else
+			map->color = 0xa18c76;/*marron fonce*/
+	}
+}
+
+static void	define_shape(t_step *bres, t_fpoint *fp, t_point *p1, t_point *p2)
+{
+	bres->dx = p2->x - p1->x;
+	bres->dy = p2->y - p1->y;
+	bres->step = define_max(bres->dx, bres->dy);
+	fp->x_inc = bres->dx / (float)bres->step;
+	fp->y_inc = bres->dy / (float)bres->step;
+	fp->z_inc = (p2->z = p1->z) / (float)step;
+	fp->x = p1->x;
+	fp->y = p1->y;
+	fp->z = p1->z;
+}
+
+void	draw_line(t_map *map, t_point *p1, t_point *p2)
+{
+	t_step		*bres;
+	t_fpoint	*fp;
+	t_pix		pixel;
+	int			i;
+
+	i = 0;
+	bres = ft_calloc(1, sizeof(t_step));
+	fp = ft_calloc(1, sizeof(t_fpoint));
+	define_shape(bres, fp, p1, p2);
+	while (i <= step)
+	{
+		map->color = define_color();
+		pixel.x = (int)fp->x;
+		pixel.y = (int)fp->y - (int)(fp->z * 0.5);
+		mlx_pixel_put(map->mlx_ptr, map->img_ptr, pixel.x, pixel.y, map->color);
+		fp->x += fp->x_inc;
+		fp->y += fp->y_inc;
+		i++;
+	}
+	free(bres);
+	free(fp);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 static void	define_point(t_vector *crd, int x1, int y1, t_point *point)
 {
 	point->x_dot = crd->x;
@@ -51,30 +166,19 @@ static void	define_step(t_point *point)
 	point->dy /= point->max;
 }
 
-static void	define_color(t_point *point, t_map *map)
+void	draw_line(t_vector *crd, int x1, int y1, t_map *map)
 {
-	float	x;
-	float	y;
+	t_point	*point;
 
-	x = point->x_dot;
-	y = point->y_dot;
-	if (map->color_matrix[(int)y][(int)x] > 0)
-		map->color = map->color_matrix[(int)y][(int)x];
-	else
-	{
-		if (point->z_dot < 0)
-			map->color = 0x7fbfbf;/*bleu*/
-		else if (point->z_dot == 0)
-			map->color = 0x7fbfbf;/*vert*/
-		else if (point->z_dot >= 1 && point->z_dot <= 15)
-			map->color = 0x7fbf7f;/*vert fonce*/
-		else if (point->z_dot > 15 && point->z_dot <= 25)
-			map->color = 0xd6a36e;/*marron clair*/
-		else
-			map->color = 0xa18c76;/*marron fonce*/
-	}
+	point = ft_calloc(1, sizeof(t_point);
+	define_point(crd, x1, y1, point);
+
+
+	free(point);
 }
+*/
 
+/*
 void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
 {
 	t_point		*point;
@@ -97,3 +201,4 @@ void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
 	}
 	free(point);
 }
+*/
