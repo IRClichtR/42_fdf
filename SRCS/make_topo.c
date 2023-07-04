@@ -6,22 +6,22 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:41:31 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 16:11:15 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:26:47 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	make_topo(float *x, float *y, int z)
+void	make_topo(int *x, int *y, int z)
 {
-	float	x_temp;
-	float	y_temp;
+	int	x_temp;
+	int	y_temp;
 
-	x_temp = (*x - *y) * cos(0.8);
-	y_temp = (*x + *y) * sin(0.8) - z;
+	x_temp = (*x - *y) * cos(0.816);
+	y_temp = (*x + *y) * sin(0.816) - z;
 	*x = x_temp;
 	*y = y_temp;
-
+}
 /*
 	float	temp_x;
 	float	temp_y;
@@ -36,5 +36,5 @@ void	make_topo(float *x, float *y, int z)
 	y = temp_y;
 	p->x1_dot = temp_x1;
 	p->y1_dot = temp_y1;
-*/
 }
+*/
