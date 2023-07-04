@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/04 15:55:31 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:37:53 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	define_color(t_point *pt, t_map *map)
 	}
 }
 
-static void	define_point(t_vector *crd, int x1, int y1, t_point *point)
+static void	define_point(t_vector *crd, float x1, float y1, t_point *point)
 {
 	point->x_dot = crd->x;
 	point->y_dot = crd->y;
@@ -60,6 +60,8 @@ static void	define_zoom(t_point *point, t_map * map)
 	point->y_dot *= map->zoom;
 	point->x1_dot *= map->zoom;
 	point->y1_dot *= map->zoom;
+printf("X = %d Y = %d\n", point->x_dot, point->y_dot);
+printf("X1 = %d Y1 = %d\n", point->x1_dot, point->y1_dot);
 }
 
 static void	define_step(t_point *point)
@@ -86,16 +88,16 @@ void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
 	define_color(point, map);
 	define_zoom(point, map);
 	define_step(point);
-	make_topo(&point->x_dot, &point->y_dot, point->z_dot);
-	make_topo(&point->x1_dot, &point->y1_dot, point->z_dot);
-	while (/*(int)*/(point->x_dot - point->x1_dot) != 0 
-	|| /*(int)*/(point->y_dot - point->y1_dot) != 0)
+//	make_topo(&point->x_dot, &point->y_dot, point->z_dot);
+//	make_topo(&point->x1_dot, &point->y1_dot, point->z_dot);
+	while ((int)(point->x_dot - point->x1_dot) != 0 
+	&& (int)(point->y_dot - point->y1_dot) != 0)
 	{
 printf("point->dx %f || point->dy %f\n", point->dx, point->dy);
-		mlx_pixel_put(map->mlx_ptr, map->img_ptr, point->x_dot + 10, point->y_dot + 10, map->color);
+		mlx_pixel_put(map->mlx_ptr, map->img_ptr, point->x_dot, point->y_dot, map->color);
 		point->x_dot += point->dx;
 		point->y_dot += point->dy;
-		break ;
+	//	break ;
 	}
 	free(point);
 }

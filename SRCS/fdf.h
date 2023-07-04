@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/04 15:25:58 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:35:16 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ typedef struct	s_pix
 */
 typedef struct	s_vector
 {
-	/*float*/int	x;
-	/*float*/int	y;
-	/*float*/int	x1;
-	/*float*/int	y1;
+	float/*int*/	x;
+	float/*int*/	y;
+	float/*int*/	x1;
+	float/*int*/	y1;
 }				t_vector;
 
 typedef struct	s_point
