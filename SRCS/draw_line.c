@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/06 15:17:23 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:31:09 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ static void	define_color(t_point *pt, t_map *map)
 		map->color = map->color_matrix[(int)pt->y_dot][(int)pt->x_dot];
 	else
 	{
-		if (pt->z_dot < 0 && pt->z1_dot < 0)
+		if (pt->z_dot <= 0 || pt->z1_dot <= 0)
 			map->color = 0x7fbfbf;/*bleu*/
-		else if (pt->z_dot == 0)
-			map->color = 0x7fbfbf;/*vert*/
-		else if (pt->z_dot >= 1 && pt->z_dot <= 15)
-			map->color = 0x7fbf7f;/*vert fonce*/
-		else if (pt->z_dot > 15 && pt->z_dot <= 25)
-			map->color = 0xd6a36e;/*marron clair*/
 		else
 			map->color = 0xa18c76;/*marron fonce*/
 	}

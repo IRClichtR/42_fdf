@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:21:17 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/26 12:13:46 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:26:30 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,15 @@ int	check_num(char *arg)
 	while (arg_chain[i] != NULL)
 	{
 		if (check_if_number(arg_chain[i]) == -1)
-			return (-1);
+			return (free_argv(arg_chain), -1);
 		if (arg_chain[i][0] == '-')
 		{
 			if (check_neg_lim(arg_chain[i]) == -1)
-				return (-1);
+				return (free_argv(arg_chain), -1);
 		}
 		else
 			if (check_pos_lim(arg_chain[i]) == -1)
-				return (-1);
+				return (free_argv(arg_chain), -1);
 		i++;
 	}
 	free_argv(arg_chain);
