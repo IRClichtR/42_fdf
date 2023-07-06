@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:06:53 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/04 16:35:16 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:11:45 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,51 +44,20 @@ typedef struct	s_map
 	int		zoom;
 	int		color;
 }				t_map;
-/*
-typedef struct	s_point
-{
-	int	x;
-	int	y;
-	int	z;
-}				t_point;
 
-typedef struct	s_fpoint
-{
-	float	x;
-	float	y;
-	float	z;
-	float	x_inc;
-	float	y_inc;
-	float	z_inc;
-}				t_fpoint;
-typedef struct	s_step
-{
-	int	dx;
-	int	dy;
-	int	step;
-}				t_step;
-
-typedef struct	s_pix
-{
-	int	x;
-	int	y;
-}				t_pix;
-*/
 typedef struct	s_vector
 {
-	float/*int*/	x;
-	float/*int*/	y;
-	float/*int*/	x1;
-	float/*int*/	y1;
+	int	x;
+	int	y;
 }				t_vector;
 
 typedef struct	s_point
 {
-	/*float*/int	x_dot;
-	/*float*/int	y_dot;
+	float	x_dot;
+	float	x1_dot;
+	float	y_dot;
+	float	y1_dot;
 	int		z_dot;
-	/*float*/int	x1_dot;
-	/*float*/int	y1_dot;
 	int		z1_dot;
 	float	dx;
 	float	dy;
@@ -101,15 +70,16 @@ int		check_map(char **all_lines);
 int		check_words(char **all_lines);
 int		check_z(char	**all_lines);
 int 	close_window(t_map *map);
-//void    draw_line(t_map *map, t_point *p1, t_point *p2);
-void    draw_line(t_vector *crd, float x1, float y1, t_map *map);
 void    delete_matrix(t_map* map);
+//void    draw_line(t_map *map, t_point *p1, t_point *p2);
+void    draw_line(t_vector *vector, float x1, float y1, t_map *map);
+//void	draw_line(float x, float y, float x1, float y1, t_map *map);
 void	draw_all_lines(t_map *map);
 void	fill_line(char *line, int *mtx_line, int *color_matrix);
-void    make_topo(int *x, int *y, int z);
 int		get_height(char **all_lines);
 int		get_width(char **all_lines);
 void	init_window(t_map *map);
+void    make_topo(float *x, float *y, int z);
 int		press_key(int keycode, t_map *map);
 void	read_file(t_map *map, char **all_lines);
 void	vector_init(t_vector *crd);

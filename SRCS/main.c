@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 13:03:26 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 13:56:36 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/06 12:27:30 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int ac, char **av)
 	map = ft_calloc(1, sizeof(t_map));
 	read_file(map, all_lines);
 	init_window(map);
+//	draw_line(10, 10, 600, 300, map);
 	draw_all_lines(map);
 	mlx_loop(map->mlx_ptr);
 	return (0);
