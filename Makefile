@@ -12,17 +12,18 @@ ft_isalnum.c      ft_lstdelone.c    ft_memmove.c      ft_striteri.c     ft_strtr
 ft_isalpha.c      ft_lstiter.c      ft_memset.c       ft_strjoin.c      ft_substr.c \
 ft_isascii.c      ft_lstlast.c      ft_putchar_fd.c   ft_strlcat.c      ft_tolower.c \
 ft_isdigit.c      ft_lstmap.c       ft_putendl_fd.c   ft_strlcpy.c      ft_toupper.c \
-ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next_line.c)
+ft_isprint.c      ft_lstnew.c       ft_putnbr_fd.c    ft_strlen.c       get_next_line.c \
+join_nfree.c)
 
 LIBTL_SRC	= $(addprefix libtools/, \
 check_num.c        define_absval.c  dump_add.c         free_2char_str.c get_all_lines.c  get_line_size.c \
 word_count.c       ft_atoi_base.c   collect_garbage.c  define_max.c     dump_del.c       get_a_line.c \
-get_len.c          join_nfree.c     super_strdup.c)
+get_len.c          super_strdup.c)
 
 CORE		= $(addprefix SRCS/, \
-check_map.c    check_z.c       draw_line.c  fill_line.c   get_width.c    main.c       		vector_init.c \
-check_words.c  close_window.c  get_height.c init_window.c read_file.c	 draw_all_lines.c   make_topo.c \
-press_key.c    check_coord.c   check_hex.c)
+check_coord.c  check_words.c   draw_all_lines.c  draw_utils.c  get_height.c   main.c        read_file.c \
+check_hex.c    check_z.c       draw_line.c       get_width.c   vector_init.c \
+check_map.c    close_window.c  draw_utils2.c     fill_line.c   init_window.c  press_key.c)
 
 MLX_DIR		= minilibx-linux
 

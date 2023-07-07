@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:27:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/20 15:25:44 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:06:03 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		ft_atoi_base(char *str, char *base);
 char	*get_a_line(int fd);
 char	**get_all_lines(char *filename);
 int		get_line_size(char *str);
-char	*join_nfree(char **s1, char *s2);
 char	**super_strdup(char **av, int ac);
 int		get_len(char **str);
 int		word_count(char *str, char charset);

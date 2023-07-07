@@ -6,92 +6,34 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/06 16:31:09 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:16:53 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	define_color(t_point *pt, t_map *map)
-{
-	if (map->color_matrix[(int)pt->y_dot][(int)pt->x_dot] > 0)
-		map->color = map->color_matrix[(int)pt->y_dot][(int)pt->x_dot];
-	else
-	{
-		if (pt->z_dot <= 0 || pt->z1_dot <= 0)
-			map->color = 0x7fbfbf;/*bleu*/
-		else
-			map->color = 0xa18c76;/*marron fonce*/
-	}
-}
-
-static void	define_point(t_vector *crd, float x1, float y1, t_point *point)
-{
-	point->x_dot = crd->x;
-	point->y_dot = crd->y;
-	point->x1_dot = x1;
-	point->y1_dot = y1;
-}
-
-static void	define_z(t_point *point, t_map *map)
-{
-	float	x;
-	float	y;
-	float	x1;
-	float	y1;
-
-	x = point->x_dot;
-	y = point->y_dot;
-	x1 = point->x1_dot;
-	y1 = point->y1_dot;
-	point->z_dot = map->z_matrix[(int)y][(int)x];
-	point->z1_dot = map->z_matrix[(int)y1][(int)x1];
-}
-
-static void	define_zoom(t_point *point, t_map * map)
-{
-	point->x_dot *= map->zoom;
-	point->y_dot *= map->zoom;
-	point->x1_dot *= map->zoom;
-	point->y1_dot *= map->zoom;
-}
-
-static void	define_step(t_point *point)
-{
-	point->dx = point->x1_dot - point->x_dot;
-	point->dy = point->y1_dot - point->y_dot;
-	point->max = define_max(point->dx, point->dy);
-	point->dx /= point->max;
-	point->dy /= point->max;
-}
-
-static void	define_shift(t_point *point)
-{
-	point->x_dot += 350;
-	point->y_dot += 350;
-	point->x1_dot += 350;
-	point->y1_dot += 350;
-}
 void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
 {
-	t_point		*point;
+	t_point		*pt;
 
-	point = ft_calloc(1, sizeof(t_point));
-
-	define_point(crd, x1, y1, point);
-	define_z(point, map);
-	define_color(point, map);
-	define_zoom(point, map);
-	make_topo(&point->x_dot, &point->y_dot, point->z_dot);
-	make_topo(&point->x1_dot, &point->y1_dot, point->z1_dot);
-	define_shift(point);
-	define_step(point);
-	while ((int)(point->x_dot - point->x1_dot) != 0 
-	|| (int)(point->y_dot - point->y1_dot) != 0)
+	pt = ft_calloc(1, sizeof(t_point));
+	define_point(crd, x1, y1, pt);
+	define_z(pt, map);
+	define_color(pt, map);
+	define_zoom(pt, map);
+	define_isometric(&pt->x_dot, &pt->y_dot, pt->z_dot);
+	define_isometric(&pt->x1_dot, &pt->y1_dot, pt->z1_dot);
+	define_shift(pt);
+	define_step(pt);
+	while ((int)(pt->x_dot - pt->x1_dot) != 0
+	|| (int)(pt->y_dot - pt->y1_dot) != 0 
+	|| pt->x_dot >= WIDTH || pt->x1_dot >= WIDTH 
+	|| pt->y_dot >= HEIGHT || pt->y1_dot >= HEIGHT)
 	{
-		mlx_pixel_put(map->mlx_ptr, map->img_ptr, point->x_dot, point->y_dot, map->color);
-		point->x_dot += point->dx;
-		point->y_dot += point->dy;
+		mlx_pixel_put(map->mlx_ptr, map->img_ptr, pt->x_dot, pt->y_dot, \
+			map->color);
+		pt->x_dot += pt->dx;
+		pt->y_dot += pt->dy;
 	}
-	free(point);
+	free(pt);
 }

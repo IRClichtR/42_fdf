@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:57 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/24 15:32:49 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:07:54 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -30,8 +30,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-
-# include "../libtools/libtools.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -76,6 +74,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-//char	*get_next_line(int fd, int mode);
 char	*get_next_line(int fd);
+char	*join_nfree(char **s1, char *s2);
 #endif

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_topo.c                                        :+:      :+:    :+:   */
+/*   join_nfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 15:41:31 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/06 16:37:45 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/05/31 13:32:48 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/07/07 12:07:04 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	make_topo(float *x, float *y, int z)
+char	*join_nfree(char **s1, char *s2)
 {
-	*x = (*x - *y) * cos(0.816);
-	*y = (*x + *y) * sin(0.816) - z;
+	char	*tmp;
+
+	if (!(*s1) && !s2)
+		return (NULL);
+	tmp = ft_strjoin(*s1, s2);
+	free(*s1);
+	*s1 = NULL;
+	return (tmp);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   join_nfree.c                                       :+:      :+:    :+:   */
+/*   draw_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 13:32:48 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/05/31 14:23:43 by ftuernal         ###   ########.fr       */
+/*   Created: 2023/07/07 11:30:23 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/07/07 11:32:38 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libtools.h"
+#include "fdf.h"
 
-char	*join_nfree(char **s1, char *s2)
+void	define_color(t_point *pt, t_map *map)
 {
-	char	*tmp;
+	if (map->color_matrix[(int)pt->y_dot][(int)pt->x_dot] > 0)
+		map->color = map->color_matrix[(int)pt->y_dot][(int)pt->x_dot];
+	else
+	{
+		if (pt->z_dot <= 0)
+			map->color = 0xffffff;
+		else
+			map->color = 0xff33f3;
+	}
+}
 
-	if (!(*s1) && !s2)
-		return (NULL);
-	tmp = ft_strjoin(*s1, s2);
-	free(*s1);
-	*s1 = NULL;
-	return (tmp);
+void	define_isometric(float *x, float *y, int z)
+{
+	*x = (*x - *y) * cos(0.816);
+	*y = (*x + *y) * sin(0.816) - z;
 }

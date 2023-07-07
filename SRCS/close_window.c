@@ -6,13 +6,13 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:42:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 17:14:59 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:58:29 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	delete_matrix(t_map* map)
+void	delete_matrix(t_map *map)
 {
 	int	i;
 

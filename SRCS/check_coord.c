@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_coord.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/07 11:56:44 by ftuernal          #+#    #+#             */
+/*   Updated: 2023/07/07 11:58:03 by ftuernal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static int	check_one_line(char **nbr_str)
@@ -24,7 +36,7 @@ static int	check_one_line(char **nbr_str)
 
 int	check_coord(char **all_lines)
 {
-	int	i;
+	int		i;
 	char	**all_nb;
 
 	i = 0;

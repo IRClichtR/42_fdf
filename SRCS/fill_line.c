@@ -6,13 +6,13 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:24:04 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/06/21 14:07:38 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/07 15:08:42 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	get_nb_color(char **nbr, int *mtx_line, int *color_mtx)
+static void	get_nb_color(char **nbr, int *mtx_line, int *color_mtx)
 {
 	char	**temp;
 	char	*hex;
@@ -50,7 +50,7 @@ void	fill_line(char *line, int *mtx_line, int *color_mtx)
 	{
 		while (nbr[i] != 0)
 		{
-			mtx_line[i] = ft_atoi(nbr[i]);
+			mtx_line[i] = ft_atoi(nbr[i]) * 5;
 			color_mtx[i] = -1;
 			i++;
 		}
@@ -58,26 +58,3 @@ void	fill_line(char *line, int *mtx_line, int *color_mtx)
 	free(line);
 	dump_del(garbage);
 }
-/*
-int main(int ac, char **av)
-{
-	char	**arg;
-	
-	arg = ft_split(av[1], ' ');
-	int	len = get_len(arg);
-	int	*mtx_line = ft_calloc(len, sizeof(int));
-	int	*color_mtx = ft_calloc(len, sizeof(int));
-	fill_line(av[1], mtx_line, color_mtx);
-	int i = 0;
-		printf("CHAIN == %s\n", av[1]);
-	while (i < len)
-	{
-		printf("z = %d | color = %d\n", mtx_line[i], color_mtx[i]);
-		i++;
-	}
-	free(mtx_line);
-	free(color_mtx);
-	free_2char_str(arg);
-	return (0);
-}
-*/
