@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:37:25 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/07 12:16:53 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/11 10:31:43 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ void	draw_line(t_vector *crd, float x1, float y1, t_map *map)
 	define_shift(pt);
 	define_step(pt);
 	while ((int)(pt->x_dot - pt->x1_dot) != 0
-	|| (int)(pt->y_dot - pt->y1_dot) != 0 
-	|| pt->x_dot >= WIDTH || pt->x1_dot >= WIDTH 
-	|| pt->y_dot >= HEIGHT || pt->y1_dot >= HEIGHT)
+	|| (int)(pt->y_dot - pt->y1_dot) != 0)
 	{
 		mlx_pixel_put(map->mlx_ptr, map->img_ptr, pt->x_dot, pt->y_dot, \
 			map->color);
 		pt->x_dot += pt->dx;
 		pt->y_dot += pt->dy;
+		if (pt->x_dot >= WIDTH || pt->x1_dot >= WIDTH
+			|| pt->y_dot >= HEIGHT || pt->y1_dot >= HEIGHT)
+			break ;
 	}
 	free(pt);
 }

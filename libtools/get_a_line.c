@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:36:35 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/07 13:02:11 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/11 10:28:16 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*get_a_line(int fd)
 	int		len;
 
 	buffer = get_buffer(fd);
+	if (buffer == 0 || buffer[0] == '\0')
+		return (free(buffer), NULL);
 	len = get_line_size(buffer);
 	line = ft_substr(buffer, 0, len);
 	free(buffer);

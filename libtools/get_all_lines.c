@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:01:01 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/07 14:25:11 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/11 10:29:48 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ static int	get_buffer_size(char *filename)
 	}
 	line = get_a_line(fd);
 	if (!line)
+	{
+		close(fd);
 		return (-1);
+	}
 	buffer_size = ft_strlen(line);
 	close(fd);
 	free(line);
-	return (buffer_size); 
+	return (buffer_size);
 }
 
 char	**get_all_lines(char *filename)
@@ -62,6 +65,8 @@ char	**get_all_lines(char *filename)
 	char	**split_lines;
 
 	buffer_size = get_buffer_size(filename);
+	if (buffer_size == -1)
+		return (NULL);
 	fd = open(filename, O_RDONLY, 0);
 	if (fd < 0)
 	{

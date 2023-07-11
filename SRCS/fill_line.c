@@ -6,7 +6,7 @@
 /*   By: ftuernal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:24:04 by ftuernal          #+#    #+#             */
-/*   Updated: 2023/07/07 15:08:42 by ftuernal         ###   ########.fr       */
+/*   Updated: 2023/07/11 10:35:23 by ftuernal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	fill_line(char *line, int *mtx_line, int *color_mtx)
 	{
 		while (nbr[i] != 0)
 		{
-			mtx_line[i] = ft_atoi(nbr[i]) * 5;
+			mtx_line[i] = ft_atoi(nbr[i]) * 3;
 			color_mtx[i] = -1;
 			i++;
 		}
